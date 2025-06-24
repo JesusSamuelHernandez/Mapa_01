@@ -11,6 +11,27 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
+
+        .titulo-mapa {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px 40px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        z-index: 10000;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        transition: opacity 0.5s ease;
+        }
+
+
+
+
         html, body, #map {
             width: 100%;
             height: 100%;
@@ -52,6 +73,12 @@
     </head>
     <body>
         <div id="map">
+
+        <div id="titulo-inicial" class="titulo-mapa">
+        Zona Purépecha
+        </div>
+
+
 
         <div id="legend" class="legend">
         <h4>CLUES IMSS-Bienestar</h4>
@@ -487,6 +514,23 @@ L.control.layers(null, overlayMaps, {collapsed: true}).addTo(map);
         map.on("layerremove", function(){
             resetLabels([layer_RegionesOperativasdelazonaPurepecha_0,layer_MunicipiosconpresenciadepueblosPurepechas_1,layer_Entidadescopiar_2,layer_CLUESIMSSBienestar_3]);
         });
+
+
+
+        // Ocultar título al hacer clic en el mapa
+        map.on('click', function () {
+        var titulo = document.getElementById('titulo-inicial');
+        if (titulo) {
+            titulo.style.opacity = '0';
+            setTimeout(function () {
+            titulo.style.display = 'none';
+            }, 500);
+        }
+        });
+
+
+
+
         </script>
     </body>
 </html>
