@@ -17,18 +17,29 @@
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px 40px;
+        background: rgba(0, 128, 128, 0.9);
+        padding: 10px 40px;
         border-radius: 10px;
-        font-size: 24px;
-        font-family: 'Arial', sans-serif;
-        color: #333;
+        font-size: 48px;
+        font-family: 'Aptos', sans-serif;
+        color: #ffffff;
         z-index: 10000;
         text-align: center;
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
         transition: opacity 0.5s ease;
         }
 
+        .titulo-mapa .subtitulo {
+        font-size: 36px;
+        color: #e0e0e0;
+        }
+
+
+        .titulo-mapa .titulo-principal {
+        display: block;
+        margin-bottom: 0px; /* 🔁 Ajusta este valor para más o menos espacio */
+        font-weight: bold;
+        }
 
 
 
@@ -75,17 +86,20 @@
         <div id="map">
 
         <div id="titulo-inicial" class="titulo-mapa">
-        Zona Purépecha
+        <span class="titulo-principal">Zona Purépecha</span>
+        <span class="subtitulo">Unidades del IMSS - Bienestar</span>
+
         </div>
+
 
 
 
         <div id="legend" class="legend">
         <h4>CLUES IMSS-Bienestar</h4>
-        <div><span style="background:#41aa3f;"></span>PRIMER NIVEL</div>
-        <div><span style="background:#e31a1c;"></span>SEGUNDO NIVEL</div>
-        <div><span style="background:#3e50e6;"></span>TERCER NIVEL</div>
-        <div><span style="background:#a7802d;"></span>UNIDAD MÓVIL</div>
+        <div><span style="background:#41aa3f;"></span>PRIMER NIVEL (128)</div>
+        <div><span style="background:#e31a1c;"></span>SEGUNDO NIVEL (13)</div>
+        <div><span style="background:#3e50e6;"></span>TERCER NIVEL (2)</div>
+        <div><span style="background:#a7802d;"></span>UNIDAD MÓVIL (18)</div>
         </div>
 
 
@@ -306,15 +320,15 @@
                         <td class="visible-with-data" id="CLUES">' + (feature.properties['CLUES'] !== null ? autolinker.link(String(feature.properties['CLUES']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Región Op</th>\
+                        <th scope="row">REGIÓN OPERATIVA</th>\
                         <td class="visible-with-data" id="Región Op">' + (feature.properties['Región Op'] !== null ? autolinker.link(String(feature.properties['Región Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NIVEL ATEN</th>\
+                        <th scope="row">NIVEL ATENCIÓN</th>\
                         <td class="visible-with-data" id="NIVEL ATEN">' + (feature.properties['NIVEL ATEN'] !== null ? autolinker.link(String(feature.properties['NIVEL ATEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NOMBRE DE</th>\
+                        <th scope="row">INSTITUCIÓN</th>\
                         <td class="visible-with-data" id="NOMBRE DE">' + (feature.properties['NOMBRE DE'] !== null ? autolinker.link(String(feature.properties['NOMBRE DE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -326,22 +340,16 @@
                         <td class="visible-with-data" id="LOCALIDAD">' + (feature.properties['LOCALIDAD'] !== null ? autolinker.link(String(feature.properties['LOCALIDAD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NOMBRE D_1</th>\
+                        <th scope="row">TIPOLOGÍA</th>\
                         <td class="visible-with-data" id="NOMBRE D_1">' + (feature.properties['NOMBRE D_1'] !== null ? autolinker.link(String(feature.properties['NOMBRE D_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NOMBRE COM</th>\
+                        <th scope="row">NOMBRE</th>\
                         <td class="visible-with-data" id="NOMBRE COM">' + (feature.properties['NOMBRE COM'] !== null ? autolinker.link(String(feature.properties['NOMBRE COM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">CODIGO POS</th>\
+                        <th scope="row">CODIGO POSTAL</th>\
                         <td class="visible-with-data" id="CODIGO POS">' + (feature.properties['CODIGO POS'] !== null ? autolinker.link(String(feature.properties['CODIGO POS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LATITUD'] !== null ? autolinker.link(String(feature.properties['LATITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LONGITUD'] !== null ? autolinker.link(String(feature.properties['LONGITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
