@@ -40,6 +40,45 @@
 
 
 
+
+
+        #btn-toggle-qr {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10001;
+        background-color: #ffffffcc;
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        }
+
+        #contenedor-qr {
+        position: absolute;
+        bottom: 60px;
+        right: 10px;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 6px rgba(0,0,0,0.3);
+        z-index: 10000;
+        display: none; /* Oculto por defecto */
+        }
+
+        #imagen-qr {
+        max-width: 150px;
+        height: auto;
+        display: block;
+        }
+
+
+
+
+
+
+
         </style>
         <title></title>
     </head>
@@ -47,11 +86,21 @@
         <div id="map">
 
 
+
+
+
         <div id="titulo-inicial" class="titulo-mapa">
         Zona Purépecha<br>CLUES IMSS-Bienestar
         </div>
 
 
+        <button id="btn-toggle-qr">Mostrar QR</button>
+        <div id="contenedor-qr">
+        <img src="img/QR_Purepecha_01.png" alt="Código QR" id="imagen-qr">
+        </div>
+
+
+        
 
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -722,6 +771,19 @@
         });
 
 
+
+
+
+        document.getElementById('btn-toggle-qr').addEventListener('click', function () {
+        var contenedorQR = document.getElementById('contenedor-qr');
+        if (contenedorQR.style.display === 'none' || contenedorQR.style.display === '') {
+            contenedorQR.style.display = 'block';
+            this.textContent = 'Ocultar QR';
+        } else {
+            contenedorQR.style.display = 'none';
+            this.textContent = 'Mostrar QR';
+        }
+        });
 
 
 
