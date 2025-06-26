@@ -44,7 +44,7 @@
 
         #btn-toggle-qr {
         position: absolute;
-        top: 10px;
+        bottom: 10px;
         left: 10px;
         z-index: 10001;
         background-color: #ffffffcc;
@@ -68,7 +68,7 @@
         }
 
         #imagen-qr {
-        max-width: 150px;
+        max-width: 220px;
         height: auto;
         display: block;
         }
@@ -155,9 +155,14 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
-        var zoomControl = L.control.zoom({
-            position: 'topleft'
-        }).addTo(map);
+
+
+        //var zoomControl = L.control.zoom({
+        //    position: 'topleft'
+        //}).addTo(map);
+
+
+
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             map.setMaxBounds(map.getBounds());
